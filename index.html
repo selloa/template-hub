@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>My Hub</title>
+  <meta name="description" content="A simple static hub built from Markdown.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="markdown-export" data-theme="dark">
+  <header class="site-header">
+    <div class="wrap">
+      <div id="google_translate_element" class="site-translate"></div>
+      <h1>My Hub</h1>
+      <p class="meta">Version 0.1.0 · 2026-06-06 · draft · by <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer">Your Name</a></p>
+    <nav class="site-topnav" aria-label="Site">
+      <ul>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="topics/index.html">Topics</a></li>
+      </ul>
+    </nav>
+    </div>
+  </header>
+  <div class="site-layout">
+    <button type="button" class="site-sidebar-show" id="sidebar-show" hidden aria-controls="site-sidebar" title="Show navigation">Show nav</button>
+  <aside class="site-sidebar" id="site-sidebar" aria-label="Page sections">
+    <div class="site-sidebar-header">
+      <p class="site-sidebar-title">On this page</p>
+      <button type="button" class="site-sidebar-toggle" id="sidebar-hide" aria-controls="site-sidebar" aria-expanded="true" title="Hide navigation">Hide</button>
+    </div>
+    <nav>
+      <ul>
+        <li class="sidebar-h1"><a href="#my-hub">My Hub</a></li>
+        <li class="sidebar-h2"><a href="#explore">Explore</a></li>
+        <li class="sidebar-h2"><a href="#customize-this-hub">Customize this hub</a></li>
+      </ul>
+    </nav>
+  </aside>
+    <main id="markview-container" class="markdown-body code-block-scroll">
+    <h1 id="my-hub">My Hub</h1>
+    <p><em>A lightweight home for links, notes, and references.</em></p>
+    <p>Write content in Markdown under <code>content/</code>, run <code>python build.py</code>, and publish the generated HTML to GitHub Pages.</p>
+    <hr>
+    <h2 id="explore">Explore</h2>
+    <ul>
+    <li><strong><a href="topics/index.html">Topics</a></strong> — example second page with sidebar sections and link styles</li>
+    </ul>
+    <hr>
+    <h2 id="customize-this-hub">Customize this hub</h2>
+    <ol>
+    <li>Edit the <code>SITE</code> block at the top of <code>build.py</code> (name, author, site id).</li>
+    <li>Edit this file and <code>content/topics.md</code> (or rename/replace them).</li>
+    <li>Add pages by extending <code>PAGES</code> and <code>NAV_ITEMS</code> in <code>build.py</code>.</li>
+    <li>Run <code>python build.py</code>, then commit both <code>.md</code> sources and generated <code>.html</code>.</li>
+    </ol>
+    <p>See <code>README.md</code> for the full checklist.</p>
+    <hr>
+    </main>
+  </div>
+  <footer class="site-footer">
+    <p>Built from <code>content/index.md</code> · v0.1.0 · 2026-06-06 · <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer">Your Name</a></p>
+  </footer>
+  <a href="#" class="back-top" id="backTop" aria-label="Back to top">↑ Top</a>
+  <script>
+  (function () {
+    var hideBtn = document.getElementById('sidebar-hide');
+    var showBtn = document.getElementById('sidebar-show');
+    var storageKey = 'my-hub-sidebar-hidden-home';
+
+    function setSidebarHidden(hidden) {
+      document.body.classList.toggle('sidebar-hidden', hidden);
+      if (hideBtn) hideBtn.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+      if (showBtn) showBtn.hidden = !hidden;
+      try { localStorage.setItem(storageKey, hidden ? '1' : '0'); } catch (e) {}
+    }
+
+    try {
+      if (localStorage.getItem(storageKey) === '1') setSidebarHidden(true);
+    } catch (e) {}
+
+    if (hideBtn) hideBtn.addEventListener('click', function () { setSidebarHidden(true); });
+    if (showBtn) showBtn.addEventListener('click', function () { setSidebarHidden(false); });
+
+    var backTop = document.getElementById('backTop');
+    if (backTop) {
+      window.addEventListener('scroll', function () {
+        backTop.classList.toggle('visible', window.scrollY > 400);
+      });
+      backTop.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  })();
+  </script>
+  <script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: 'en', includedLanguages: 'en,fr,it,de,es', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL },
+      'google_translate_element'
+    );
+  }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
