@@ -10,8 +10,6 @@ A reusable static hub template: write Markdown, run a local build, publish HTML 
 - **Build:** `build.py` generates static HTML with sidebar nav, Google Translate, link badges, and more
 - **Deploy:** commit generated HTML at the repo root for GitHub Pages (no CI required)
 
-Live hubs such as [coder-hub](https://github.com/selloa/coder-hub) and dottt-hub can pick up improvements made here over time.
-
 ## Quick start
 
 Requires Python 3:
